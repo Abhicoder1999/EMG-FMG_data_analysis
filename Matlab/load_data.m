@@ -3,9 +3,11 @@ clc
 %% Initial Settings
 warning('off','all');
 T = [];
-disp('select the Parent Directory...');
-path_parent = uigetdir();
+M1 = [];
+M2 = [];
 
+disp('select the Parent Directory...');
+path_parent = uigetdir('..');
 
 %% Input Section
 speed = [];
@@ -32,17 +34,18 @@ T = uploadData(path_parent,type,subject,speed,trail,sensor,max_column);
 
 
 %% Mode
-mode = input('enter the variant mode Trail(1),Subject(2),Speed(3),Sensor(4):');
+mode = input('enter the variant mode Trail(1),Subject(2),Speed(3),Sensor(4)):');
 
 % Preprocess
 data = T;
 pdata = filterData(data,type);
 disp('preprocessing done..!');
 
+%% Results
 
-% Results
+        
 if mode == 4
-    figure(4)
+%     figure(4)
     for i = 1:length(sensor)
         subplot(length(sensor),1,i)
         plot(pdata(:,i))
@@ -57,7 +60,7 @@ if mode == 4
         end
     end
 elseif mode == 3
-    figure(3)
+%     figure(3)
     names = [];
     for i = 1:length(speed)
           plot(pdata(:,i));
@@ -79,7 +82,7 @@ elseif mode == 3
     end
 
 elseif mode == 2
-    figure(2)
+%     figure(2)
     names = [];
     for i = 1:length(subject)
            plot(pdata(:,i));
@@ -99,7 +102,7 @@ elseif mode == 2
     end
   
  elseif mode == 1
-    figure(1)
+%     figure(1)
     names = [];
     for i = 1:length(trail)
           plot(pdata(:,i));
@@ -117,5 +120,6 @@ elseif mode == 2
             ylabel('FMG Amplitude')
             xlabel('time (ms)')
     end
+
 end
 disp('Results shown')

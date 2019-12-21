@@ -8,6 +8,8 @@ path_type = strcat(path_parent,'\',ftype_name);
     sublen = length(subject);
     for i = 1:sublen
         temp = dir(path_type);
+%         disp(path_type)
+%         disp(temp)
         subject_name = temp(subject(i)+2).name;
         path_sub = strcat(path_type,'\',subject_name);
         
