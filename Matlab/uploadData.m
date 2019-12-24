@@ -29,7 +29,8 @@ path_type = strcat(path_parent,'\',ftype_name);
                         path_trail = strcat(path_speed,'\',trail_name);
                         
                             %For Data Loading                            
-%                             disp(path_trail);
+%                           disp(path_trail); % uncomment for debugging
+                        
                             temp = readtable(path_trail);
                             
                             if type == 1
